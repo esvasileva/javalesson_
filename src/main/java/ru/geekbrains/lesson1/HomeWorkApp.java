@@ -2,11 +2,15 @@ package ru.geekbrains.lesson1;
 
 import static java.lang.System.*;
 
-public class HomeWork1App {
+public class HomeWorkApp {
     public static void main(String[] args) {
+        out.println("Task2\n----");
         printThreeWords();
+        out.println("----\nTask3\n----");
         checkSumSign();
+        out.println("----\nTask4\n----");
         printColor();
+        out.println("----\nTask5");
         compareNumbers();
     }
 
