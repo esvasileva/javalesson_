@@ -6,7 +6,9 @@ public class HomeWork2App {
     public static void main(String[] args) {
         out.printf("Task1\n----\n%s%n", checkSumSign10Between20(-10, 40));
         out.printf("----\nTask2\n----\n%s%n", checkNumberPosNegString(-15));
-        out.printf("----\nTask3\n----\n%s%n", checkNumberPosNegBoolean(0));
+        out.printf("----\nTask3\n----\n%s%n", checkNumberPosNegBoolean(8));
+        out.println("----\nTask4\n----");
+        printStringCount("It's work", 23);
     }
 
     static boolean checkSumSign10Between20(int a, int b) {
@@ -21,6 +23,10 @@ public class HomeWork2App {
         if (d == 0)
             throw new RuntimeException("The number Zero is neither positive or negative");
         else return (d < 0);
+    }
+
+    static void printStringCount(String text, int count) {
+        for(int i = 0; i < count; i++) out.println(text);
     }
 }
 
