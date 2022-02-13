@@ -12,18 +12,18 @@ public class HomeWork2App {
         out.printf("----\nTask5\n----\n%s%n", checkLeapYear(1602));
     }
 
-    static boolean checkSumSign10Between20(int a, int b) {
-        return (a+b >= 10 && a+b <= 20);
+    static boolean checkSumSign10Between20(int number1, int number2) {
+        return (number1+number2 >= 10 && number1+number2 <= 20);
     }
 
-    static String checkNumberPosNegString(int c) {
-        return ((c >= 0)? "Number positive":"Number negative");
+    static String checkNumberPosNegString(int numbers) {
+        return ((numbers >= 0)? "Number positive":"Number negative");
     }
 
-    static boolean checkNumberPosNegBoolean(int d) throws RuntimeException {
-        if (d == 0)
+    static boolean checkNumberPosNegBoolean(int numberb) throws RuntimeException {
+        if (numberb == 0)
             throw new RuntimeException("The number Zero is neither positive or negative");
-        else return (d < 0);
+        else return (numberb < 0);
     }
 
     static void printStringCount(String text, int count) {
