@@ -1,3 +1,10 @@
+/**
+ * Java 1. Home task 2
+ *
+ * @author Elena Vasileva
+ * @version 13.02.2022
+ */
+
 package ru.geekbrains.lesson2;
 
 import static java.lang.System.*;
