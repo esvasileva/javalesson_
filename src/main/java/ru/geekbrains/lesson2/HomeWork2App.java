@@ -9,6 +9,7 @@ public class HomeWork2App {
         out.printf("----\nTask3\n----\n%s%n", checkNumberPosNegBoolean(8));
         out.println("----\nTask4\n----");
         printStringCount("It's work", 23);
+        out.printf("----\nTask5\n----\n%s%n", checkLeapYear(1602));
     }
 
     static boolean checkSumSign10Between20(int a, int b) {
@@ -27,6 +28,12 @@ public class HomeWork2App {
 
     static void printStringCount(String text, int count) {
         for(int i = 0; i < count; i++) out.println(text);
+    }
+
+    static boolean checkLeapYear(int year) {
+        if ((year%4 == 0 && year%100 != 0) || (year%400 == 0 && year%100 == 0)) {
+            return true;
+        } else return false;
     }
 }
 
