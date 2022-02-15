@@ -1,5 +1,5 @@
 /**
- * Java 1. Home task 2
+ * Java 1. Home task 3
  *
  * @author Elena Vasileva
  * @version 15.02.2022
