@@ -14,7 +14,7 @@ public class HomeWork2App {
         out.printf("Task1\n----\n%s%n", checkSumSign10Between20(-10, 40));
         out.println("----\nTask2\n----");
         checkNumberPosNegString(-15);
-        out.printf("----\nTask3\n----\n%s%n", checkNumberPosNegBoolean(8));
+        out.printf("----\nTask3\n----\n%s%n", checkNumberPosNegBoolean(-8));
         out.println("----\nTask4\n----");
         printStringCount("It's work", 23);
         out.printf("----\nTask5\n----\n%s%n", checkLeapYear(1602));
