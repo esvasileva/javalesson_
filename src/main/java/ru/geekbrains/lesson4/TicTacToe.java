@@ -2,7 +2,7 @@
  * Java 1. Home task 4
  *
  * @author Elena Vasileva
- * @version 19.02.2022
+ * @version 18.02.2022
  */
 
 package ru.geekbrains.lesson4;
