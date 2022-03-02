@@ -1,3 +1,10 @@
+/**
+ * Java 1. Home task 7
+ *
+ * @author Elena Vasileva
+ * @version 02.03.2022
+ */
+
 package ru.geekbrains.lesson7;
 
 public class Cat {
