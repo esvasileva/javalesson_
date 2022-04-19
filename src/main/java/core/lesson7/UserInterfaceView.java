@@ -21,11 +21,13 @@ public class UserInterfaceView {
 
             if("0".equals(command)) break;
 
-            try {
-                controller.getWeather(command, city);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            if(("1".equals(command)) || ("5".equals(command))) {
+                try {
+                    controller.getWeather(command, city);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else System.out.println("Введите корректное значение!");
         }
     }
 }

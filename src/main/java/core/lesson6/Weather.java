@@ -22,7 +22,7 @@ public class Weather {
                 .addPathSegment("daily")
                 .addPathSegment("5day")
                 .addPathSegment("295212")
-                .addQueryParameter("apikey","42RdYdMP5QGjolxnRPsyBXFmexe9vFVA")
+                .addQueryParameter("apikey","g7l7GJh6s6JrUaOdGnvKgKaT7MRstwpy")
                 .build();
 
         Request request = new Request.Builder()

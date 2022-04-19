@@ -18,7 +18,7 @@ public class AccuweatherModel implements WeatherModel {
     private static final String DAILY = "daily";
     private static final String ONE_DAY = "1day";
     private static final String FIVE_DAY = "5day";
-    private static final String API_KEY = "42RdYdMP5QGjolxnRPsyBXFmexe9vFVA";
+    private static final String API_KEY = "g7l7GJh6s6JrUaOdGnvKgKaT7MRstwpy";
     private static final String API_KEY_QUERY_PARAM = "apikey";
     private static final String LOCATIONS = "locations";
     private static final String CITIES = "cities";
@@ -84,8 +84,8 @@ public class AccuweatherModel implements WeatherModel {
 
 
                     System.out.println("Дата : " + dateNode);
-                    System.out.println("Днем: " + temperatureDay + " " + day + "\n" +
-                            "Ночью: " + temperatureNight + " " + night);
+                    System.out.println("Днем: " + temperatureDay + "C " + day + "\n" +
+                            "Ночью: " + temperatureNight + "C " + night + "\n");
                 }
                 break;
         }
@@ -113,7 +113,7 @@ public class AccuweatherModel implements WeatherModel {
         String weatherResponse = cityResponse.body().string();
 
         String cityKey = objectMapper.readTree(weatherResponse).get(0).at("/Key").asText();
-        System.out.println(cityKey);
+        //System.out.println(cityKey);
 
         return cityKey;
     }
@@ -123,7 +123,5 @@ public class AccuweatherModel implements WeatherModel {
 
         userInterfaceView.runInterface();
 
-        //AccuweatherModel accuweatherModel = new AccuweatherModel();
-        //accuweatherModel.detectedCityKey("Moscow");
     }
 }
