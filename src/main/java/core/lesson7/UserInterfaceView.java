@@ -15,13 +15,14 @@ public class UserInterfaceView {
 
             System.out.println("Введите 1 для получения прогрноза на 1 день; " +
                     "Введите 5 для получения прогноза на 5 дней; " +
+                    "Введите 2 для получения данных из базы;" +
                     "Введите 0 для завершения.");
 
             String command = scanner.nextLine();
 
             if("0".equals(command)) break;
 
-            if(("1".equals(command)) || ("5".equals(command))) {
+            if(("1".equals(command)) || ("5".equals(command)) || ("2".equals(command))) {
                 try {
                     controller.getWeather(command, city);
                 } catch (IOException e) {

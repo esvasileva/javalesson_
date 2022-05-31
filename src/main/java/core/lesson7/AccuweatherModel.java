@@ -2,12 +2,16 @@ package core.lesson7;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import core.lesson7.entity.Weather;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AccuweatherModel implements WeatherModel {
 
@@ -26,6 +30,8 @@ public class AccuweatherModel implements WeatherModel {
 
     private static final OkHttpClient okHttpClient = new OkHttpClient();
     private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    private DatabaseRepository databaseRepository = new DatabaseRepository();
 
     @Override
     public void getWeather(String city, Period period) throws IOException {
@@ -70,22 +76,29 @@ public class AccuweatherModel implements WeatherModel {
                 Response fiveDayForecastResponse = okHttpClient.newCall(requestFiveDays).execute();
                 String weatherResponseFiveDays = fiveDayForecastResponse.body().string();
 
-                System.out.println("Погода в городе " + city + ":\n");
+                List<Weather> weatherList = new ArrayList<>();
+                int i = 0;
 
+                System.out.println("Погода в городе " + city + ":\n");
                 JsonNode root = objectMapper.readTree(weatherResponseFiveDays);
                 JsonNode daysNode = root.path("DailyForecasts");
                 for (JsonNode node : daysNode) {
+
                     String dateNode = node.path("Date").asText();
                     int temperatureDay  = (int) ((node.path("Temperature").path("Maximum").path("Value").asInt() - 32) / 1.8);
                     int temperatureNight = (int) ((node.path("Temperature").path("Minimum").path("Value").asInt() - 32) / 1.8);
                     String day = node.path("Day").path("IconPhrase").asText();
                     String night = node.path("Night").path("IconPhrase").asText();
-
-
-
                     System.out.println("Дата : " + dateNode);
                     System.out.println("Днем: " + temperatureDay + "C " + day + "\n" +
                             "Ночью: " + temperatureNight + "C " + night + "\n");
+                    weatherList.add(i, new Weather(city,dateNode,temperatureDay));
+                    i++;
+                }
+                try {
+                    databaseRepository.saveWeatherToDataBase(weatherList);
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
                 break;
         }
@@ -118,9 +131,13 @@ public class AccuweatherModel implements WeatherModel {
         return cityKey;
     }
 
+    @Override
+    public List<Weather> getSavedToDBWeather() {
+        return databaseRepository.getSavedToDBWeather();
+    }
+
     public static void main(String[] args) throws IOException {
         UserInterfaceView userInterfaceView = new UserInterfaceView();
-
         userInterfaceView.runInterface();
 
     }
